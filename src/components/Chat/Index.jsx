@@ -10,7 +10,9 @@ function Chat() {
   )
 
   return (
-    <div>Chat</div>
+    <div style={{ flexBasis: "100%" }}>
+      <MultiChatSocket {...chatProps} />
+    </div>
   )
 }
 
