@@ -3,7 +3,7 @@ import { useMultiChatLogic, MultiChatSocket, MultiChatWindow } from 'react-chat-
 import Header from '@/components/CustomHeader/Index'
 import StandardMessageForm from '@/components/CustomMessageForms/StandardMessageForm'
 
-function Chat() {
+export const Chat = () => {
   const chatProps = useMultiChatLogic(
     import.meta.env.VITE_PROJECT_ID,
     "testuser",
@@ -26,5 +26,3 @@ function Chat() {
     </div>
   )
 }
-
-export default Chat
