@@ -1,7 +1,9 @@
 import React from 'react'
 
-export const StandardMessageForm = () => {
+const StandardMessageForm = () => {
   return (
     <div>StandardMessageForm</div>
   )
 }
+
+export default StandardMessageForm

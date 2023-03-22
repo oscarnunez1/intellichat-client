@@ -1,9 +1,9 @@
 import React from 'react'
 import { useMultiChatLogic, MultiChatSocket, MultiChatWindow } from 'react-chat-engine-advanced'
-import Header from '@/components/CustomHeader/Index'
+import Header from '@/components/CustomHeader'
 import StandardMessageForm from '@/components/CustomMessageForms/StandardMessageForm'
 
-export const Chat = () => {
+const Chat = () => {
   const chatProps = useMultiChatLogic(
     import.meta.env.VITE_PROJECT_ID,
     "testuser",
@@ -26,3 +26,5 @@ export const Chat = () => {
     </div>
   )
 }
+
+export default Chat
