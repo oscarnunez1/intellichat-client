@@ -2,6 +2,7 @@ import React from 'react'
 import { ChatBubbleLeftRightIcon, PhoneIcon } from "@heroicons/react/24/solid"
 
 function CustomHeader({ chat }) {
+  console.log('chat.description', chat.description);
   return (
     <div className='chat-header'>
       <div className='flexbetween'>
@@ -10,7 +11,11 @@ function CustomHeader({ chat }) {
       </div>
       <div className='flexbetween'>
         <PhoneIcon className='icon-phone' />
-        <p className='header-text'>{chat.description}</p>
+        {chat.description !== '⬅️ ⬅️ ⬅️' ? (
+          <p className='header-text'>{chat.description}</p>
+        ) : (
+          <p className='header-text'>No Chat Selected</p>
+        )}
       </div>
     </div>
   )
