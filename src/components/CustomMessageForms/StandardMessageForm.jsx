@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import Dropzone from 'react-dropzone'
 
 const StandardMessageForm = ({ props, activeChat }) => {
-  console.log('Active Chat', activeChat)
   const [message, setMessage] = useState("")
   const [attachement, setAttachment] = useState("")
   const [preview, setPreview] = useState("")
@@ -11,7 +10,22 @@ const StandardMessageForm = ({ props, activeChat }) => {
   const handleChange = (e) => setMessage(e.target.value)
 
   const handleSubmit = async () => {
+    const date = new Date()
+      .toISOString()
+      .replace("T", " ")
+      .replace("Z", `${Math.floor(Math.random() * 1000)}+00:00`)
+    const at = attachement ? [{ blob: attachement, file: attachement.name }] : []
+    const form = {
+      attachements: at,
+      created: date,
+      sender_username: props.username,
+      text: message,
+      activeChatId: activeChat.id
+    }
 
+    props.onSubmit(form)
+    setMessage("")
+    setAttachment("")
   }
 
   return (
@@ -69,7 +83,7 @@ const StandardMessageForm = ({ props, activeChat }) => {
             className='message-form-icon-airplane'
             onClick={() => {
               setPreview("")
-              // handleSubmit()
+              handleSubmit()
             }}
           />
         </div>
