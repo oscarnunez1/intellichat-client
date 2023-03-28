@@ -8,6 +8,9 @@ const StandardMessageForm = ({ props, activeChat }) => {
   const handleChange = (e) => setMessage(e.target.value)
 
   const handleSubmit = async () => {
+
+    if (message.trim() === "" && !attachment) return 
+    
     const date = new Date()
       .toISOString()
       .replace("T", " ")
