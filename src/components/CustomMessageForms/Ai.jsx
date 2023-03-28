@@ -8,9 +8,6 @@ const Ai = ({ props, activeChat }) => {
   const handleChange = (e) => setMessage(e.target.value)
 
   const handleSubmit = async () => {
-
-    if (message.trim() === "" && !attachment) return 
-    
     const date = new Date()
       .toISOString()
       .replace("T", " ")
@@ -39,4 +36,4 @@ const Ai = ({ props, activeChat }) => {
   )
 }
 
-export default Ai
+export default Ai 
