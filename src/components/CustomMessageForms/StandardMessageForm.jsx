@@ -3,7 +3,7 @@ import MessageFormUi from './MessageFormUi'
 
 const StandardMessageForm = ({ props, activeChat }) => {
   const [message, setMessage] = useState("")
-  const [attachement, setAttachment] = useState("")
+  const [attachment, setAttachment] = useState("")
 
   const handleChange = (e) => setMessage(e.target.value)
 
@@ -12,9 +12,9 @@ const StandardMessageForm = ({ props, activeChat }) => {
       .toISOString()
       .replace("T", " ")
       .replace("Z", `${Math.floor(Math.random() * 1000)}+00:00`)
-    const at = attachement ? [{ blob: attachement, file: attachement.name }] : []
+    const at = attachment ? [{ blob: attachment, file: attachment.name }] : []
     const form = {
-      attachements: at,
+      attachments: at,
       created: date,
       sender_username: props.username,
       text: message,
