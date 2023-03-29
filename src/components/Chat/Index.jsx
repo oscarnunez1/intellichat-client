@@ -4,6 +4,7 @@ import Header from '@/components/CustomHeader'
 import StandardMessageForm from '@/components/CustomMessageForms/StandardMessageForm'
 import Ai from '@/components/CustomMessageForms/Ai'
 import AiCode from '@/components/CustomMessageForms/AiCode'
+import AiAssist from '@/components/CustomMessageForms/AiAssist'
 
 const Chat = () => {
   const chatProps = useMultiChatLogic(
@@ -26,7 +27,9 @@ const Chat = () => {
           if (chatProps.chat?.title.startsWith("AiCode_")) {
             return <AiCode props={props} activeChat={chatProps.chat} />
           }
-
+          if (chatProps.chat?.title.startsWith("AiAssist_")) {
+            return <AiAssist props={props} activeChat={chatProps.chat} />
+          }
 
           return (
             <StandardMessageForm props={props} activeChat={chatProps.chat} />
