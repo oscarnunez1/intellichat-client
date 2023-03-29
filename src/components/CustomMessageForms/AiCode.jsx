@@ -5,7 +5,7 @@ import MessageFormUi from './MessageFormUi'
 const AiCode = ({ props, activeChat }) => {
   const [message, setMessage] = useState("")
   const [attachment, setAttachment] = useState("")
-  const [trigger] = usePostAiCodeMutation()
+  const [triggerCode] = usePostAiCodeMutation()
 
   const handleChange = (e) => setMessage(e.target.value)
 
@@ -24,7 +24,7 @@ const AiCode = ({ props, activeChat }) => {
     }
 
     props.onSubmit(form)
-    trigger(form)
+    triggerCode(form)
     setMessage("")
     setAttachment("")
   }
